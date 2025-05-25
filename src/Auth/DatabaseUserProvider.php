@@ -111,6 +111,14 @@ class DatabaseUserProvider extends UserProvider
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false)
+    {
+        return $this->eloquent->rehashPasswordIfRequired($user, $credentials, $force);
+    }
+
+    /**
      * Set and import the authenticating LDAP user.
      *
      * @param User $user
